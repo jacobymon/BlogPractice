@@ -1,0 +1,16 @@
+<h1>Sign Up</h1>
+<p>Find me in app/views/registrations/new.html.erb</p>
+<%=form_with model: User, url: registrations_path do |form|%>
+    <div>
+        <%= form.label :email %>
+        <%= form.email_field :email %>
+    </div>
+    <div>
+        <%=form.label :password %>
+        <%= form.password_field :password %>
+    </div>
+    <div>
+    <%= form.submit :"sign up" %>
+    </div>
+<% end %>
+

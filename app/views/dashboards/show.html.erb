@@ -1,0 +1,28 @@
+<h1>Your Blog(s) Details</h1>
+
+
+
+
+<table>
+    <thead>
+        <tr>
+        <th><strong> Title: </strong> </th>
+        <th><strong> Blog: </strong>  </th>
+        <th><strong> Author: </strong> </th>
+        <th><strong> Date Published: </strong> </th>
+
+        </tr>
+    </thead>
+
+
+    <tbody>
+        <%= @blog.each do |test| %>
+        <tr>
+            <td> <%= test.title %>
+            <td> <%= test.blog %>
+            <td> <%= User.find_by(id: test.user_id).email %>
+            <td> <%= test.created_at %>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
