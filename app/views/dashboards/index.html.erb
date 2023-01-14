@@ -7,6 +7,8 @@
         <tr>
         <th><strong>Author</strong></th>
         <th><strong>Blog</strong></th>
+        <th colspan="3"><strong>Blog Number</strong></th>
+
         <th colspan="3"><strong>Action</strong></th>
 
         </tr>
@@ -18,6 +20,10 @@
         <tr>
             <td> <%= User.find_by(id: test.user_id).email %>
             <td> <%= test.blog %>
+            <td> <%= test.id %>
+            
+
+
         </tr>
         <% end %>
     </tbody>

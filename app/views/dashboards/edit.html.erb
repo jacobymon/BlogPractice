@@ -1,7 +1,25 @@
 <h1>Edit article</h1>
 
+<p>
+    blog user id is 
+    <%= @blog.user_id  %>
+</p> <br/>
+<p>
+    user id is 
+    <%= @user.id %>
+</p>
+<p>
+    session[:blog_id] is  
+    <%= @test %>
+</p>
 
-<%= form_with model: Blog, url: dashboards_path do |f| %>
+<p>
+    session blog is  
+    <%= @blogsession %>
+</p>
+
+
+<%= form_with model: @blog, url: dashboards_path do |f| %>
     <p>
       <%= f.label :title %><br/>
       <%= f.text_field :title %>
@@ -13,6 +31,6 @@
     </p>
   
     <p>
-      <%= f.submit :"submit" %>
+        <%= f.submit :"submit" %>
     </p>
 <% end %>
