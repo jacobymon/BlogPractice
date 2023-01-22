@@ -6,8 +6,14 @@ class RegistrationsController < ApplicationController
 
   end
 
+  def index
+    @blog = Blog.all
+
+  end
+
   def create
     @user = User.new(user_params)
+    
     if @user.save
       redirect_to new_login_path
     else

@@ -1,23 +1,5 @@
 <h1>Edit article</h1>
 
-<p>
-    blog user id is 
-    <%= @blog.user_id  %>
-</p> <br/>
-<p>
-    user id is 
-    <%= @user.id %>
-</p>
-<p>
-    session[:blog_id] is  
-    <%= @test %>
-</p>
-
-<p>
-    session blog is  
-    <%= @blogsession %>
-</p>
-
 
 <%= form_with model: @blog, url: dashboards_path do |f| %>
     <p>
@@ -34,3 +16,4 @@
         <%= f.submit :"submit" %>
     </p>
 <% end %>
+<%= link_to "Back To Blog Index", dashboards_path%>

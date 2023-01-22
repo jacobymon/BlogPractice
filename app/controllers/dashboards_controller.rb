@@ -1,15 +1,16 @@
 class DashboardsController < ApplicationController
   def index
-    user = User.find_by(id: session[:user_id])
-    redirect_to new_login_path unless user
+    
     @blog = Blog.all
   end
 
   def edit
     session[:blog_id] = params[:id]
-    @test = session[:blog_id]
     @blog = Blog.find_by(id: params[:id])
     @user = User.find_by(id: session[:user_id])
+    
+
+    
     if @blog.user_id != @user.id
       flash[:alert] = "You are not the author of that blog"
       redirect_to dashboards_path
@@ -23,7 +24,7 @@ class DashboardsController < ApplicationController
 
   def show
     @user = User.find_by(id: session[:user_id])
-    @blog = @user.blogs
+    @blog = Blog.find_by(id: params[:id])
   end
 
   def new
@@ -35,7 +36,6 @@ class DashboardsController < ApplicationController
     @user = User.find_by(id: session[:user_id])
     @blog.user = @user
 
-    puts " ++++++++++++++++++++++++ #{session[:blog_id]}"
 
     if @blog.save     
       redirect_to dashboard_path(@blog)
@@ -47,10 +47,8 @@ class DashboardsController < ApplicationController
   end  
 
   def update
-    @id = params[:id]
     @user = User.find_by(id: session[:user_id])
     @blog = Blog.find_by(id: session[:blog_id])
-    puts "****************** #{session[:blog_id]}"
     if @blog.update(params.require(:blog).permit(:title, :blog))
       flash[:alert] = "Blog updated succesfully"
       redirect_to dashboards_path

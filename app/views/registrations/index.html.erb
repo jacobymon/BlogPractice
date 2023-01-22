@@ -16,9 +16,6 @@
         <th><strong>Author</strong></th>
         <th><strong>Blog</strong></th>
         <th ><strong>Blog Number</strong></th>
-
-        <th colspan="2"><strong>Action</strong></th>
-
         </tr>
     </thead>
 
@@ -29,16 +26,8 @@
             <td> <%= User.find_by(id: test.user_id).email %>
             <td> <%= test.blog %>
             <td> <%= test.id %>
-            <td> <%= link_to "details", dashboard_path(test)%>
-            <td> <%= link_to "edit", edit_dashboard_url(test)%>
-
-            
-
-
         </tr>
         <% end %>
     </tbody>
 </table>
-<%= link_to "Create a Blog", new_dashboard_path%>
-
-
+<%= link_to "Log In", new_login_path%>

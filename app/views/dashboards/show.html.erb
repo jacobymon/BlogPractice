@@ -1,6 +1,14 @@
-<h1>Your Blog(s) Details</h1>
+<h1>Blog Details</h1>
 
-
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+</style>
 
 
 <table>
@@ -9,7 +17,9 @@
         <th><strong> Title: </strong> </th>
         <th><strong> Blog: </strong>  </th>
         <th><strong> Author: </strong> </th>
-        <th><strong> Date Published/Updated: </strong> </th>
+        <th><strong> Date Published: </strong> </th>
+        <th><strong> Date Updated: </strong> </th>
+
         <th><strong> Article ID: </strong> </th>
 
 
@@ -18,15 +28,17 @@
 
 
     <tbody>
-        <%= @blog.each do |test| %>
         <tr>
-            <td> <%= test.title %>
-            <td> <%= test.blog %>
-            <td> <%= User.find_by(id: test.user_id).email %>
-            <td> <%= test.created_at %>
-            <td> <%= test.id %>
+            <td> <%= @blog.title %>
+            <td> <%= @blog.blog %>
+            <td> <%= User.find_by(id: @blog.user_id).email %>
+            <td > <%= @blog.created_at %>
+            <td> <%= @blog.updated_at %>
+
+            <td> <%= @blog.id %>
 
         </tr>
-        <% end %>
     </tbody>
 </table>
+
+<%= link_to "Back To Blog Index", dashboards_path%>
